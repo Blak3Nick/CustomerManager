@@ -5,10 +5,23 @@
 }
 
 
-
-<ul>
-    @foreach (var customer in Model)
-    {
-        <li>@customer.Name</li>
-    }
-</ul>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Customer</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td> 
+                    <td>@customer.Email</td>
+                </tr>
+                
+            }
+        
+    </tbody>
+</table>
