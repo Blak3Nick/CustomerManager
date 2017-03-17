@@ -1,4 +1,4 @@
-﻿@model CustomerManager.ViewModel.CustomerViewModel
+﻿@model IEnumerable<CustomerManager.Models.Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 
 
 <ul>
-    @foreach (var customer in Model.Customers)
+    @foreach (var customer in Model)
     {
         <li>@customer.Name</li>
     }
