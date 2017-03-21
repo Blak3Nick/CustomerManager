@@ -1,0 +1,22 @@
+﻿@model CustomerManager.ViewModel.CustomerDeleteModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Delete</h2>
+
+
+
+@using (Html.BeginForm("Delete", "Customers"))
+{
+    <div class="form-group">
+        <p>Delete Customer?</p>
+        @Html.LabelFor(m => m.Customer.Name)
+        
+    </div>
+
+    @Html.HiddenFor(m => m.Customer.Id)
+    <button type="submit" class="btn btn-primary">Delete</button>
+}
+

@@ -78,5 +78,32 @@ namespace CustomerManager.Controllers
 
             return View("CustomerForm", viewModel);
         }
+        [HttpDelete]
+        public ActionResult Delete(Customer customer)
+        {
+ 
+            var customerInDb = _context.Customers.Find(customer.Id);
+            _context.Customers.Remove(customerInDb);
+            
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+
+        }
+
+        public ActionResult DeletePage(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+        
+            var viewModel = new CustomerDeleteModel
+            {
+                Customer = customer,
+            };
+
+            return View("CustomerDelete", viewModel);
+
+        }
     }
 }

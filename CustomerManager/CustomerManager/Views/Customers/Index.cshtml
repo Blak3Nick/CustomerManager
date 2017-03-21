@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<button class="btn btn-group-lg btn-danger">@Html.ActionLink("New Customer", "New", "Customers")</button>
 <table class="table table-bordered table-hover">
     <thead>
     <tr>
@@ -14,14 +14,17 @@
     </thead>
     <tbody>
         
-            @foreach (var customer in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td> 
-                    <td>@customer.Email</td>
-                </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td> 
+            
+            <td>@customer.Email</td>
+            <td>@Html.ActionLink("Delete", "DeletePage", "Customers", new { id = customer.Id }, null)</td> 
+        </tr>
                 
-            }
+    }
         
     </tbody>
 </table>
+
