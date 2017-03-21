@@ -78,11 +78,13 @@ namespace CustomerManager.Controllers
 
             return View("CustomerForm", viewModel);
         }
-        [HttpDelete]
+        [HttpPost]
         public ActionResult Delete(Customer customer)
         {
- 
+            
+            //Customer customer = _context.Customers.Find(id);
             var customerInDb = _context.Customers.Find(customer.Id);
+
             _context.Customers.Remove(customerInDb);
             
 
